@@ -2,6 +2,16 @@
 body {
     text-align: center;
     font-family: cursive;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(247, 247, 247, 0.865);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
@@ -21,3 +31,9 @@ body {
 .clicked {
     background-color: brown;
 }
+
+.values {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
