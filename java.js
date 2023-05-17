@@ -39,6 +39,6 @@ setup();
 controls.insertBefore(text, input);
 input.addEventListener('input', () => {
     const divs = document.querySelectorAll('.grid');
-    divs.forEach(div => container.removeChild(div));
+    divs.forEach(div => div.remove());
     setup(); 
 });
