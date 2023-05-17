@@ -1,7 +1,7 @@
 
 const container = document.querySelector('.container');
-
-for(let i = 0; i < 16 * 16; i++) {
+let length = 16 * 16; 
+for(let i = 0; i < length; i++) {
     const div = document.createElement('div');
     div.classList.add('grid');
     container.appendChild(div);
@@ -9,6 +9,7 @@ for(let i = 0; i < 16 * 16; i++) {
 
 
 function start(event) {
+    this.classList.add('clicked');
     divs.forEach(div => div.addEventListener('mouseover', fillIn));
 }
 

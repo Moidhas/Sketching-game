@@ -5,16 +5,19 @@ body {
 }
 
 .container {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
-    width: 580px;
+    width: 610px;
+    height: 610px;
+    border: black solid 1px;
 }
 
 .grid {
+    box-sizing: border-box;
+    width: 6.25%;
+    height: 6.25%;
     border: grey solid 1px;
-    width: 33px; 
-    height: 33px;
 }
 
 .clicked {
