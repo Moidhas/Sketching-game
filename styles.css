@@ -14,10 +14,8 @@ body {
 }
 
 .grid {
-    box-sizing: border-box;
-    width: 6.25%;
-    height: 6.25%;
-    border: grey solid 1px;
+    box-sizing: border-box; 
+    border: rgb(217, 217, 217) solid 1px;
 }
 
 .clicked {
