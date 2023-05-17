@@ -1,20 +1,12 @@
-function start(event) {
-    this.classList.add('clicked');
-    divs.forEach(div => div.addEventListener('mouseover', fillIn));
-}
 
 function fillIn(event) {
     this.classList.add('clicked');
 }
 
-function end(event) {
-    divs.forEach(div => div.removeEventListener('mouseover', fillIn));
-}
-
 function setup(event) {
     text.textContent = `${input.value} x ${input.value}`;
-    let length = input.value * input.value; 
-    let size = (1 / input.value) * 100; 
+    const length = input.value * input.value; 
+    const size = (1 / input.value) * 100; 
     for (let i = 0; i < length; i++) {
         const div = document.createElement('div');
         div.classList.add('grid');
@@ -22,6 +14,18 @@ function setup(event) {
         div.style.height = `${size}%`;
         container.appendChild(div);
     } 
+    const divs = document.querySelectorAll('.grid');
+    let end = function() {
+        divs.forEach(div => div.removeEventListener('mouseover', fillIn));
+    }
+
+    divs.forEach(div => div.addEventListener('mousedown', () => {
+        div.classList.add('clicked');
+        divs.forEach(div => div.addEventListener('mouseover', fillIn));
+    }));
+
+    divs.forEach(div => div.addEventListener('mouseup', end));
+    html.addEventListener('mouseup', end);
 }
 
 const controls = document.querySelector('.controls');
@@ -32,15 +36,9 @@ const container = document.querySelector('.container');
 const html = document.querySelector('html');
 
 setup();
-let divs = document.querySelectorAll('.grid');
 controls.insertBefore(text, input);
-
-divs.forEach(div => div.addEventListener('mousedown', start));
-divs.forEach(div => div.addEventListener('mouseup', end));
-html.addEventListener('mouseup', end);
-
 input.addEventListener('input', () => {
+    const divs = document.querySelectorAll('.grid');
     divs.forEach(div => container.removeChild(div));
-    setup();
-    divs = document.querySelectorAll('.grid'); 
+    setup(); 
 });
