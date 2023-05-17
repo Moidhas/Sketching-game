@@ -9,12 +9,14 @@ function fillIn(event) {
 
 function end(event) {
     divs.forEach(div => div.removeEventListener('mouseover', fillIn));
+    console.log(this);
 }
 
 
 const container = document.querySelector('.container');
-let length = 16 * 16; 
-let size = (1 / 16) * 100; 
+const body = document.querySelector('body');
+let length = 15 * 15; 
+let size = (1 / 15) * 100; 
 
 for(let i = 0; i < length; i++) {
     const div = document.createElement('div');
@@ -27,3 +29,4 @@ for(let i = 0; i < length; i++) {
 const divs = document.querySelectorAll('.grid');
 divs.forEach(div => div.addEventListener('mousedown', start));
 divs.forEach(div => div.addEventListener('mouseup', end));
+body.addEventListener('mouseup', end);
